@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Yalit.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Yalit.Global">
+            <summary>
+            کلاس عمومی
+            </summary>
+        </member>
+        <member name="M:Yalit.Global.ToInt(System.Object)">
+            <summary>
+             تبدیل هر شی در صورت امکان به نوع عددی
+             </summary>
+             <param name="str">شی برا تبدیل به داده عددی</param>
+             <returns>در صورت تبدیل پذیری شی به عدد، مقدار آن و در غیر اینصورت مقدار صفر برگردانده میشود</returns>
+        </member>
+        <member name="M:Yalit.Global.ToDouble(System.Object)">
+            <summary>
+            تبدیل انواع مختلف به Double
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Yalit.Global.ToBoolean(System.Object)">
+            <summary>
+            تبدیل هر شی در صورت امکان به نوع بولین
+            </summary>
+            <param name="str">شی برا تبدیل به داده عددی</param>
+            <returns>در صورت تبدیل پذیری شی به بولین، مقدار آن و در غیر اینصورت مقدار False برگردانده میشود</returns>
+        </member>
+        <member name="M:Yalit.Global.ToLowLengh(System.Object,System.Int32)">
+            <summary>
+            تبدیل یک عدد به تعداد ارقام کمتر
+            </summary>
+            <param name="str">The string.</param>
+            <param name="len">The length.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Yalit.Global.ToLengh(System.Object,System.Int32)">
+            <summary>
+            To the length.
+            </summary>
+            <param name="str">The string.</param>
+            <param name="len">The length.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Yalit.Global.ToLengh(System.Object,System.Int32,System.Char)">
+            <summary>
+            To the Specific length.
+            </summary>
+            <param name="str">The string.</param>
+            <param name="len">The length.</param>
+            <param name="nullValue">The null value.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Yalit.Global.FixFaChar(System.Object)">
+            <summary>
+            Replace Arabic char with Farsi Char
+            </summary>
+            <param name="str">The string.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Yalit.Global.FixFaChar(System.Object,System.String)">
+            <summary>
+            تبدیل همه چی به استرینگ
+            </summary>
+            <param name="str">The string.</param>
+            <param name="returnValue">مقدار برگشتی در صورت ناموفق بودن کانورت یا خالی بودن رشته</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Yalit.Global.FixFaChar(System.Object,System.Object)">
+            <summary>
+            Fixes the ye.
+            </summary>
+            <param name="str">The string.</param>
+            <param name="returnValue">The return value.</param>
+            <returns>System.Object.</returns>
+        </member>
+        <member name="M:Yalit.Global.FixFaChar(System.Object,System.String,System.String)">
+            <summary>
+            چک کردن برابر بودن مقدار ورودی با مقداری مشخص . برگرداندن مقدار دلخواه در صورت برقراری شرط
+            </summary>
+            <param name="str">مقدار ورودی</param>
+            <param name="returnValue">مقدار برگشتی در صورت برقرار بودن شرط</param>
+            <param name="condition">مقداری که ورودی با آن چک میشود</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Yalit.Global.GetTagValue(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="strSource">متن مورد بررسی</param>
+            <param name="strStart">بخش اولیه تگ</param>
+            <param name="strEnd">بخش انتهای تگ</param>
+            <returns>در صورت وجود مقدار تگ در غیر این صورت مقدار خالی</returns>
+        </member>
+        <member name="M:Yalit.Global.FixFaNumber(System.Object)">
+            <summary>
+            تبدیل اعداد انگلیسی به فارسی.
+            </summary>
+            <param name="str">The string.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Yalit.Global.ToFaMonth(System.Int32)">
+            <summary>
+            تابع تبدیل ماه عددی به معادل متنی فارسی آن
+            </summary>
+            <example>
+            این کد ماهی که در آن هستیم را به صورت متنی برمیگرداند
+            <code>
+            string persianMonth = DateTime.Now.ToFaDate("M").toFaMonth(); 
+            </code></example>
+            <param name="month">اعدادی بین ۱ تا ۱۲</param>
+            <returns>معادل متنی ماه مورد نظر</returns>
+            <seealso cref="!:ToFaDate(DateTime, string)"/>
+        </member>
+        <member name="M:Yalit.Global.CheckInternetConnection(System.String)">
+            <summary>
+            چک کردن ارتباط با اینترنت
+            </summary>
+            <param name="url">The URL to Check.</param>
+            <returns><c>true</c> if Internet connection is established, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Yalit.Global.ToGregorian(System.String)">
+            <summary>
+            Convert Persian Date To Gregorian Date
+            </summary>
+            <param name="str">the string</param>
+            <example>"1391/01/01".ToGergoian()</example>
+            <returns> Gregorian Date </returns>
+            <exception cref="T:System.FormatException"></exception>
+        </member>
+        <member name="M:Yalit.Global.GetPersianCulture">
+            <summary>
+            Persian Calcure
+            </summary>
+            <returns>Persian Fixed Culture</returns>
+        </member>
+        <member name="M:Yalit.Global.ToPersianDate(System.DateTime,System.String)">
+            <summary>
+            تبدیل تاریخ میلادی به تاریخ خورشیدی
+            </summary>
+            <param name="date">تاریخ ورودی میلادی</param>
+            <param name="format">فرمت خروجی</param>
+            <example><code>DateTime.Now.ToPeString("yy/MM/dd HH:mm:ss");</code></example>
+            <returns>System.String.</returns>
+        </member>
+    </members>
+</doc>

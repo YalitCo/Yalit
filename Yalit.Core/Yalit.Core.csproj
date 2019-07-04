@@ -4,6 +4,19 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Company>Yalit</Company>
     <Authors>Mehdi Khosravi</Authors>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/YalitCo/Yalit</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/YalitCo/Yalit</RepositoryUrl>
+    <RepositoryType></RepositoryType>
+    <PackageTags>C#</PackageTags>
+    <PackageLicenseUrl>https://licenses.nuget.org/MIT</PackageLicenseUrl>
+    <Copyright></Copyright>
+    <PackageIconUrl>https://yalitco.com/Image/Logo_SignIn.png</PackageIconUrl>
+    <Version>1.0.1</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>E:\GitHub\Yalit\Yalit.Core\Yalit.Core.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>
