@@ -6,31 +6,38 @@
     <members>
         <member name="T:Yalit.Global">
             <summary>
-            کلاس عمومی
+            Static Class Contain Extension Methods
             </summary>
         </member>
         <member name="M:Yalit.Global.ToInt(System.Object)">
             <summary>
-             تبدیل هر شی در صورت امکان به نوع عددی
+             Convert Object to Int32
              </summary>
-             <param name="str">شی برا تبدیل به داده عددی</param>
-             <returns>در صورت تبدیل پذیری شی به عدد، مقدار آن و در غیر اینصورت مقدار صفر برگردانده میشود</returns>
+             <param name="obj">Input Object</param>
+             <returns>If obj is convertable to int32 return result else return 0</returns>
         </member>
         <member name="M:Yalit.Global.ToDouble(System.Object)">
             <summary>
-            تبدیل انواع مختلف به Double
+            Convert Object to Double
             </summary>
-            <param name="val"></param>
-            <returns></returns>
+            <param name="obj">input value</param>
+            <returns>If obj is convertable to double return result else return 0</returns>
+        </member>
+        <member name="M:Yalit.Global.ToDecimal(System.Object)">
+            <summary>
+            Convert Object to decimal
+            </summary>
+            <param name="obj">input value</param>
+            <returns>If obj is convertable to decimal return result else return 0</returns>
         </member>
         <member name="M:Yalit.Global.ToBoolean(System.Object)">
             <summary>
-            تبدیل هر شی در صورت امکان به نوع بولین
+            Convert Object to boolean
             </summary>
-            <param name="str">شی برا تبدیل به داده عددی</param>
-            <returns>در صورت تبدیل پذیری شی به بولین، مقدار آن و در غیر اینصورت مقدار False برگردانده میشود</returns>
+            <param name="obj">input value</param>
+            <returns>If obj is convertable to double return result else return 0</returns>
         </member>
-        <member name="M:Yalit.Global.ToLowLengh(System.Object,System.Int32)">
+        <member name="M:Yalit.Global.ToLowLengh(System.String,System.Int32)">
             <summary>
             تبدیل یک عدد به تعداد ارقام کمتر
             </summary>
@@ -38,19 +45,11 @@
             <param name="len">The length.</param>
             <returns>System.String.</returns>
         </member>
-        <member name="M:Yalit.Global.ToLengh(System.Object,System.Int32)">
-            <summary>
-            To the length.
-            </summary>
-            <param name="str">The string.</param>
-            <param name="len">The length.</param>
-            <returns>System.String.</returns>
-        </member>
-        <member name="M:Yalit.Global.ToLengh(System.Object,System.Int32,System.Char)">
+        <member name="M:Yalit.Global.ToLengh(System.String,System.Int32,System.Char)">
             <summary>
             To the Specific length.
             </summary>
-            <param name="str">The string.</param>
+            <param name="inputString">The string.</param>
             <param name="len">The length.</param>
             <param name="nullValue">The null value.</param>
             <returns>System.String.</returns>
@@ -114,7 +113,6 @@
             </code></example>
             <param name="month">اعدادی بین ۱ تا ۱۲</param>
             <returns>معادل متنی ماه مورد نظر</returns>
-            <seealso cref="!:ToFaDate(DateTime, string)"/>
         </member>
         <member name="M:Yalit.Global.CheckInternetConnection(System.String)">
             <summary>
@@ -127,7 +125,7 @@
             <summary>
             Convert Persian Date To Gregorian Date
             </summary>
-            <param name="str">the string</param>
+            <param name="persianDate">the string</param>
             <example>"1391/01/01".ToGergoian()</example>
             <returns> Gregorian Date </returns>
             <exception cref="T:System.FormatException"></exception>

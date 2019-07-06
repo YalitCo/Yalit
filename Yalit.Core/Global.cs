@@ -3,28 +3,29 @@ using System.Net.NetworkInformation;
 using System.Globalization;
 using System.Reflection;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Yalit
 {
     /// <summary>
-    /// کلاس عمومی
+    /// Static Class Contain Extension Methods
     /// </summary>
     public static class Global
     {
         ///<summary>
-        /// تبدیل هر شی در صورت امکان به نوع عددی
+        /// Convert Object to Int32
         /// </summary>
-        /// <param name="str">شی برا تبدیل به داده عددی</param>
-        /// <returns>در صورت تبدیل پذیری شی به عدد، مقدار آن و در غیر اینصورت مقدار صفر برگردانده میشود</returns>
-        public static int ToInt(this object str)
+        /// <param name="obj">Input Object</param>
+        /// <returns>If obj is convertable to int32 return result else return 0</returns>
+        public static int ToInt(this object obj)
         {
-            if (str == null || str == DBNull.Value)
+            if (obj == null || obj == DBNull.Value)
             {
                 return 0;
             }
             try
             {
-                return Convert.ToInt32(str);
+                return Convert.ToInt32(obj);
             }
             catch
             {
@@ -33,13 +34,13 @@ namespace Yalit
         }
 
         /// <summary>
-        /// تبدیل انواع مختلف به Double
+        /// Convert Object to Double
         /// </summary>
-        /// <param name="val"></param>
-        /// <returns></returns>
-        public static double ToDouble(this object val)
+        /// <param name="obj">input value</param>
+        /// <returns>If obj is convertable to double return result else return 0</returns>
+        public static double ToDouble(this object obj)
         {
-            if (double.TryParse(val.ToString(), out var number))
+            if (double.TryParse(obj.ToString(), out var number))
             {
                 return number;
             }
@@ -48,9 +49,15 @@ namespace Yalit
                 return 0;
             }
         }
-        public static decimal ToDecimal(this object val)
+
+        /// <summary>
+        /// Convert Object to decimal
+        /// </summary>
+        /// <param name="obj">input value</param>
+        /// <returns>If obj is convertable to decimal return result else return 0</returns>
+        public static decimal ToDecimal(this object obj)
         {
-            if (decimal.TryParse(val.ToString(), out var res))
+            if (decimal.TryParse(obj.ToString(), out var res))
             {
                 return res;
             }
@@ -59,14 +66,15 @@ namespace Yalit
                 return 0;
             }
         }
+
         /// <summary>
-        /// تبدیل هر شی در صورت امکان به نوع بولین
+        /// Convert Object to boolean
         /// </summary>
-        /// <param name="str">شی برا تبدیل به داده عددی</param>
-        /// <returns>در صورت تبدیل پذیری شی به بولین، مقدار آن و در غیر اینصورت مقدار False برگردانده میشود</returns>
-        public static Boolean ToBoolean(this object str)
+        /// <param name="obj">input value</param>
+        /// <returns>If obj is convertable to double return result else return 0</returns>
+        public static bool ToBoolean(this object obj)
         {
-            if (bool.TryParse(str?.ToString(), out bool res))
+            if (bool.TryParse(obj?.ToString(), out bool res))
             {
                 return res;
             }
@@ -75,13 +83,14 @@ namespace Yalit
                 return false;
             }
         }
+
         /// <summary>
         /// تبدیل یک عدد به تعداد ارقام کمتر
         /// </summary>
         /// <param name="str">The string.</param>
         /// <param name="len">The length.</param>
         /// <returns>System.String.</returns>
-        public static string ToLowLengh(this object str, int len)
+        public static string ToLowLengh(this string str, int len)
         {
             if (str == null)
             {
@@ -111,72 +120,24 @@ namespace Yalit
                 return se;
             }
         }
-        /// <summary>
-        /// To the length.
-        /// </summary>
-        /// <param name="str">The string.</param>
-        /// <param name="len">The length.</param>
-        /// <returns>System.String.</returns>
-        public static string ToLengh(this object str, int len)
-        {
-            try
-            {
-                int a = str.ToInt();
-                string s = a.ToString();
-                for (int i = s.Length; i < len; i++)
-                {
-                    s = "0" + s;
-                }
-                //if (s.Length > len)
-                //{
-                //    s = s.Substring(0, len);
-                //}
-                return s;
-            }
-            catch
-            {
-                string se = "";
-                for (int i = se.Length; i < len; i++)
-                {
-                    se = "0" + se;
-                }
-                return se;
-            }
-        }
+
         /// <summary>
         /// To the Specific length.
         /// </summary>
-        /// <param name="str">The string.</param>
+        /// <param name="inputString">The string.</param>
         /// <param name="len">The length.</param>
         /// <param name="nullValue">The null value.</param>
         /// <returns>System.String.</returns>
-        public static string ToLengh(this object str, int len, char nullValue)
+        public static string ToLengh(this string inputString, int len, char nullValue = '0')
         {
-            try
+            StringBuilder sb = new StringBuilder(inputString);
+            while (sb.Length < len)
             {
-                int a = Convert.ToInt32(str);
-                string s = a.ToString();
-                for (int i = s.Length; i < len; i++)
-                {
-                    s = "0" + s;
-                }
-                //if (s.Length > len)
-                //{
-                //    s = s.Substring(0, len);
-                //}
-                return s;
+                sb.Insert(0, nullValue);
             }
-            catch
-            {
-                string se = "";
-                for (int i = se.Length; i < len; i++)
-                {
-                    se = nullValue + se;
-                }
-                return se;
-                //Yalit.Properties.Resources.
-            }
+            return sb.ToString();
         }
+
         /// <summary>
         /// Replace Arabic char with Farsi Char
         /// </summary>
@@ -341,7 +302,6 @@ namespace Yalit
         /// </code></example>
         /// <param name="month">اعدادی بین ۱ تا ۱۲</param>
         /// <returns>معادل متنی ماه مورد نظر</returns>
-        /// <seealso cref="ToFaDate(DateTime, string)"/>
         public static string ToFaMonth(this int month)
         {
             switch (month)
@@ -395,7 +355,7 @@ namespace Yalit
         /// <summary>
         /// Convert Persian Date To Gregorian Date
         /// </summary>
-        /// <param name="str">the string</param>
+        /// <param name="persianDate">the string</param>
         /// <example>"1391/01/01".ToGergoian()</example>
         /// <returns> Gregorian Date </returns>
         /// <exception cref="FormatException"></exception>
