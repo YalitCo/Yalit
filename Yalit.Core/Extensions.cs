@@ -10,7 +10,7 @@ namespace Yalit
     /// <summary>
     /// Static Class Contain Extension Methods
     /// </summary>
-    public static class Global
+    public static class Extensions
     {
         ///<summary>
         /// Convert Object to Int32
